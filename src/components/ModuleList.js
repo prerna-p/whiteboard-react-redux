@@ -73,11 +73,24 @@ export default class ModuleList extends React.Component {
         })
     }
 
+    updateModule = (module) => {
+        let newModuleTitle = prompt("Enter module title", module.title)
+        if(newModuleTitle != null){
+            module.title = newModuleTitle
+        }
+        else{
+            alert("Title cannot be null")
+        }
+        this.moduleService.updateModule(this.props.courseId,module.id,module)
+            .then(() => {
+            this.findAllModules(this.props.courseId);
+        });
+    }
 
     render() {
         return(
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-3">
                    <ul className="list-group">
 
                        <li className="list-group-item">
@@ -95,6 +108,7 @@ export default class ModuleList extends React.Component {
                                    deleteModule={this.deleteModule}
                                    selectModule={this.selectModule}
                                    selected={this.state.selectedModule === module}
+                                   updateModule={this.updateModule}
                                />
                            ))
                        }

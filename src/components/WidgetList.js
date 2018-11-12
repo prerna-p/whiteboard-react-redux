@@ -10,14 +10,27 @@ class WidgetList extends React.Component{
 
     constructor(props){
         super(props);
-        props.init(props.widgetsInit,props.topic);
-        let inputV;
+        this.state = {
+            widgets: [],
+            topicId:''
+        }
     }
 
-    componentDidMount(){}
+    setTopicId = (topicId) => {
+        this.setState({topicId: topicId});
+    }
 
-    componentDidUpdate(){
-        this.props.init(this.props.widgetsInit, this.props.topic)
+    componentDidMount(){
+        console.log(this.props.topicId)
+        this.props.init(this.props.topicId)
+    }
+
+    componentWillReceiveProps(nprops){
+        if(nprops.topicId != this.state.topicId){
+            this.setTopicId(nprops.topicId);
+            this.props.init(nprops.topicId);
+        }
+
     }
     render(){
         return(
@@ -26,7 +39,7 @@ class WidgetList extends React.Component{
                         <div className="mt-1 col-12 text-right">
                             <button className="btn btn-success btn-sm mr-1"
                                     id="saveBtn"
-                                    onClick={()=>this.props.saveWidget}> Save
+                                    onClick={()=>this.props.saveWidget(this.props.widgets)}> Save
                             </button>
                             Preview
                             <div className="float-right m-1">
@@ -57,10 +70,10 @@ class WidgetList extends React.Component{
 
                                     <select className="custom-select-sm ml-1"
                                             onChange={(event) => {
-                                            widget.type = event.target.value;
+                                            widget.widgetType = event.target.value;
                                             this.props.updateWidget(widget);
                                             }}
-                                            value={widget.type}>
+                                            value={widget.widgetType}>
                                         <option value="HEADING">Heading</option>
                                         <option value="PARAGRAPH">Paragraph</option>
                                         <option value="LIST">List</option>
@@ -72,27 +85,27 @@ class WidgetList extends React.Component{
                                         <i className="fa fa-times"></i>
                                     </button>
                                 </div>
-                                {widget.type === "HEADING" &&
+                                {widget.widgetType === "HEADING" &&
                                 <HeadingWidget updateWidget={this.props.updateWidget}
                                                widget={widget}
                                                preview={this.props.preview}
                                                name={index}/>}
-                                {widget.type === "LIST" &&
+                                {widget.widgetType === "LIST" &&
                                 <ListWidget updateWidget={this.props.updateWidget}
                                             widget={widget}
                                             preview={this.props.preview}
                                             name={index}/>}
-                                {widget.type === "PARAGRAPH" &&
+                                {widget.widgetType === "PARAGRAPH" &&
                                 <ParagraphWidget updateWidget={this.props.updateWidget}
                                                  widget={widget}
                                                  preview={this.props.preview}
                                                  name={index}/>}
-                                {widget.type === "IMAGE" &&
+                                {widget.widgetType === "IMAGE" &&
                                 <ImageWidget updateWidget={this.props.updateWidget}
                                              widget={widget}
                                              preview={this.props.preview}
                                              name={index}/>}
-                                {widget.type === "LINK" &&
+                                {widget.widgetType === "LINK" &&
                                 <LinkWidget updateWidget={this.props.updateWidget}
                                             widget={widget}
                                             preview={this.props.preview}
@@ -102,7 +115,7 @@ class WidgetList extends React.Component{
                     }
                     </ul>
                     <div className="float-right">
-                        <button onClick={() => this.props.createWidget(this.props.widgets)}
+                        <button onClick={() => this.props.createWidget(this.props.topicId)}
                                 className="btn btn-danger m-1">
                             <i className="fa fa-plus"></i>
                         </button>
@@ -116,25 +129,3 @@ class WidgetList extends React.Component{
 
 
 export default WidgetList
-/*<li className="list-group-item">
-    <HeadingWidget />
-    </li>
-    <li className="list-group-item border-0">
-        <div className="float-right">
-            <button className="btn btn-danger">
-                <i className="fa fa-plus"></i>
-            </button>
-        </div>
-    </li>
-    <li className="list-group-item">
-        <ParagraphWidget />
-        </li>
-    <li className="list-group-item">
-        <ListWidget />
-    </li>
-    <li className="list-group-item">
-        <ImageWidget />
-        </li>
-    <li className="list-group-item">
-        <LinkWidget />
-    </li>*/

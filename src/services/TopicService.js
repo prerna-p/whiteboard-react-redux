@@ -1,12 +1,16 @@
 
 
-/*const Uri = 'http://localhost:8080/api/course/courseId/module/moduleId/lesson/lessonId/topic';
-const tUri = 'http://localhost:8080/api/lesson/{lid}/topic';
-const tUri2 = 'http://localhost:8080/api/topic/{tid}'*/
+const Uri = 'http://localhost:8080/api/course/courseId/module/moduleId/lesson/lessonId/topic';
+const tUri = 'http://localhost:8080/api/lesson/lid/topic';
+const tUri2 = 'http://localhost:8080/api/topic/tid';
+
+/*
 
 const Uri = 'http://sheltered-lowlands-30899.herokuapp.com/api/course/courseId/module/moduleId/lesson/lessonId/topic';
 const tUri = 'http://sheltered-lowlands-30899.herokuapp.com/api/lesson/{lid}/topic';
-const tUri2 = 'http://sheltered-lowlands-30899.herokuapp.com/api/topic/{tid}'
+const tUri2 = 'http://sheltered-lowlands-30899.herokuapp.com/api/topic/{tid}';
+
+*/
 
 
 export default class TopicService{
@@ -19,12 +23,14 @@ export default class TopicService{
     }
 
     findAllTopics = (lid) => {
-        return fetch(tUri.replace('lid',lid))
+        return fetch(tUri.replace('lid',lid),
+            {credentials:'include'})
             .then(response=>response.json())
     }
 
     createTopics = (lid,topic) => {
         return fetch(tUri.replace('lid',lid),{
+            credentials:'include',
             body: JSON.stringify(topic),
             headers: {'Content-Type' : 'application/json'},
             method: 'POST'
@@ -32,12 +38,14 @@ export default class TopicService{
     }
 
     findTopicById = (tid) => {
-        return fetch(tUri2+'/'+tid)
-            .then(response=>response.json())
+        return fetch(tUri2.replace('tid',tid),{
+            credentials:'include',
+        }).then(response=>response.json())
     }
 
     updateTopic = (tid,topic) => {
-        return fetch(tUri2+'/'+tid,{
+        return fetch(tUri2.replace('tid',tid),{
+            credentials:'include',
             body: JSON.stringify(topic),
             headers: {'Content-Type' : 'application/json'},
             method:'PUT'
@@ -45,7 +53,8 @@ export default class TopicService{
     }
 
     deleteTopic = (tid) => {
-        return fetch(tUri2+'/'+tid,{
+        return fetch(tUri2.replace('tid',tid),{
+            credentials:'include',
             method:'DELETE'
         }).then(response => response.json())
     }

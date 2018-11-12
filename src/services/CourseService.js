@@ -1,12 +1,8 @@
-const uri = 'https://sheltered-lowlands-30899.herokuapp.com/api/user/';
-//const uri = 'http://localhost:8080/api/user/';
+//const uri = 'http://sheltered-lowlands-30899.herokuapp.com/api/user/';
+const uri = 'http://localhost:8080/api/user/';
 export default class CourseService {
 
-    constructor(){
-        this.sendUid='';
-    }
     findAllCourses = (userId) => {
-        this.sendUid = userId;
         return fetch(uri+userId+'/course',{
             credentials:'include',
         }).then(response => response.json());

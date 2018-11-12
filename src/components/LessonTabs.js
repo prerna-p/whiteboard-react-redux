@@ -72,7 +72,8 @@ export default class LessonTabs extends Component{
                         selectLesson={this.selectLesson}
                         lesson={lesson}
                         key={lesson.id}
-                        deleteLesson={this.deleteLesson}/>
+                        deleteLesson={this.deleteLesson}
+                        updateLesson={this.updateLesson}/>
                 }
             );
         }
@@ -90,6 +91,19 @@ export default class LessonTabs extends Component{
     createLesson = () => {
         this.lessonService.createLesson(this.props.moduleId,this.state.newLessonTitle)
             .then(() => {
+            this.findLessonsForCourseId(this.props.courseId, this.props.moduleId);
+        });
+    }
+
+    updateLesson = (lesson) => {
+        let newLessonTitle = prompt("Enter lesson title", lesson.title)
+        if(newLessonTitle != null){
+            lesson.title = newLessonTitle
+        }
+        else{
+            alert("Title cannot be null")
+        }
+        this.lessonService.updateLesson(lesson.id,lesson).then(() => {
             this.findLessonsForCourseId(this.props.courseId, this.props.moduleId);
         });
     }

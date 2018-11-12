@@ -16,9 +16,8 @@ export default class UserProfile extends Component{
 
     }
     componentDidMount() {
-        return fetch("https://sheltered-lowlands-30899.herokuapp.com/api/profile")
+        return fetch("http://sheltered-lowlands-30899.herokuapp.com/api/profile")
             .then(response => response.json()).then(user => {
-                console.log(user)
                 this.setState({
                     id:user.id,
                     username:user.username,

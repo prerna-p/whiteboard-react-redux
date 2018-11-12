@@ -1,6 +1,13 @@
 import TopicPill from "./TopicPill";
 import React, {Component} from 'react';
 import TopicService from "../services/TopicService";
+import WidgetListContainer from "../containers/WidgetListContainer";
+import WidgetReducer from "../reducers/WidgetReducer";
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+const store = createStore(WidgetReducer)
+
 
 export default class TopicPills extends Component{
 
@@ -42,8 +49,6 @@ export default class TopicPills extends Component{
         this.setCourseId(this.props.courseId);
         this.setModuleId(this.props.moduleId);
         this.setLessonId(this.props.lessonId);
-        console.log("mount")
-        console.log(this.props.courseId)
         this.findTopicsForCourseId(this.props.courseId,this.props.moduleId,this.props.lessonId)
     }
 
@@ -79,7 +84,18 @@ export default class TopicPills extends Component{
         });
     }
 
-
+    updateTopic = (topic) => {
+        let newTopicTitle = prompt("Enter topic title", topic.title)
+        if(newTopicTitle != null){
+            topic.title = newTopicTitle
+        }
+        else{
+            alert("Title cannot be null")
+        }
+        this.topicService.updateTopic(topic.id,topic).then(() => {
+            this.findTopicsForCourseId(this.props.courseId, this.props.moduleId,this.props.lessonId);
+        });
+    }
     render() {
         return (
             <div>
@@ -93,7 +109,8 @@ export default class TopicPills extends Component{
                                 selectTopic={this.selectTopic}
                                 deleteTopic={this.deleteTopic}
                                 topicFormChanged={this.topicFormChanged}
-                                createTopic={this.createTopic}/>
+                                createTopic={this.createTopic}
+                                updateTopic={this.updateTopic}/>
                         )
                     }
                     <li className="nav-item">
@@ -109,7 +126,13 @@ export default class TopicPills extends Component{
                         </div>
                     </li>
                 </ul>
-
+                {
+                    this.state.selectedTopic.id &&
+                    <Provider store={store}>
+                        <WidgetListContainer
+                            topicId={this.state.selectedTopic.id}/>
+                    </Provider>
+                }
             </div>
         )
     }

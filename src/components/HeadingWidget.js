@@ -1,7 +1,6 @@
 import React from 'react'
 
 const HeadingWidget = ({widget,updateWidget,preview,name}) => {
-    let h_input
     return(
         <div>
             <div className="row">
