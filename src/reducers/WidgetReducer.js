@@ -3,10 +3,8 @@ import WidgetService1 from '../services/WidgetService1'
 
 const WidgetReducer = (state, action) =>
 {
-    //this.widgetService = new asdd.js();
     switch (action.type) {
         case 'INIT':{
-            console.log(action.widgets)
             return {
                 widgets: action.widgets,
                 topicId: action.topicId,

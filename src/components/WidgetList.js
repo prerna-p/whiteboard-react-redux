@@ -21,7 +21,6 @@ class WidgetList extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.topicId)
         this.props.init(this.props.topicId)
     }
 
@@ -78,7 +77,6 @@ class WidgetList extends React.Component{
                                         <option value="PARAGRAPH">Paragraph</option>
                                         <option value="LIST">List</option>
                                         <option value="IMAGE">Image</option>
-                                        <option value="LINK">Link</option>
                                     </select>
                                     <button onClick={() => this.props.deleteWidget(widget)}
                                             className="btn btn-sm btn-danger ml-1">

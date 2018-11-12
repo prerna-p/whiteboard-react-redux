@@ -1,4 +1,4 @@
-const wUri =  'http://localhost:8080/api/topic/tid/widget' //create and get
+const wUri =  'http://localhost:8080/api/topic/tid/paragraph/widget' //create and get
 const wUri2 = 'http://localhost:8080/api/paragraph/widget/wid';
 
 export default class WidgetService{
