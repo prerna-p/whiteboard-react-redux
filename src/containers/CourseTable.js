@@ -21,7 +21,7 @@ export default class CourseTable extends Component{
         this.deleteCourse = this.deleteCourse.bind(this);
     }
     componentDidMount() {
-       return fetch("http://java-jpa-server.herokuapp.com/api/profile")
+       return fetch("https://java-jpa-server.herokuapp.com/api/profile")
             .then(response => response.json()).then(user => {
                 this.setState({
                     userId:user.id,
