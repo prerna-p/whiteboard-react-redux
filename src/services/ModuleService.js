@@ -4,9 +4,9 @@ const mUri = 'http://localhost:8080/api/course/cid/module';
 const mUri2 = 'http://localhost:8080/api/course/cid/module/mid'
 */
 
-const cUri = 'http://java-jpa-server.herokuapp.com/api/user/uid/course/cid/module';
-const mUri = 'http://java-jpa-server.herokuapp.com/api/course/cid/module';
-const mUri2 = 'http://java-jpa-server.herokuapp.com/api/course/cid/module/mid'
+const cUri = 'https://java-jpa-server.herokuapp.com/api/user/uid/course/cid/module';
+const mUri = 'https://java-jpa-server.herokuapp.com/api/course/cid/module';
+const mUri2 = 'https://java-jpa-server.herokuapp.com/api/course/cid/module/mid'
 
 
 

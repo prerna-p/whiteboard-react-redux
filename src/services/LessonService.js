@@ -5,9 +5,9 @@ const lUri2 = 'http://localhost:8080/api/lesson'; // for the rest
 */
 
 
-const mUri = 'http://java-jpa-server.herokuapp.com/api/course/cid/module/mid/lesson'
-const lUri = 'http://java-jpa-server.herokuapp.com/api/module/mid/lesson'; //for createlesson and findallLessons
-const lUri2 = 'http://java-jpa-server.herokuapp.com/api/lesson'; // for the rest
+const mUri = 'https://java-jpa-server.herokuapp.com/api/course/cid/module/mid/lesson'
+const lUri = 'https://java-jpa-server.herokuapp.com/api/module/mid/lesson'; //for createlesson and findallLessons
+const lUri2 = 'https://java-jpa-server.herokuapp.com/api/lesson'; // for the rest
 
 
 
