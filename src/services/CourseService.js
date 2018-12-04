@@ -1,5 +1,5 @@
-//const uri = 'http://sheltered-lowlands-30899.herokuapp.com/api/user/';
-const uri = 'http://localhost:8080/api/user/';
+//const uri = 'http://localhost:8080/api/user/';
+const uri = 'https://java-jpa-server.herokuapp.com/api/user/'
 export default class CourseService {
 
     findAllCourses = (userId) => {

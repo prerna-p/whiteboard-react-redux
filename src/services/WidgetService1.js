@@ -1,5 +1,7 @@
-const wUri =  'http://localhost:8080/api/topic/tid/widget' //create and get
-const wUri2 = 'http://localhost:8080/api/widget/wid';
+//const wUri =  'http://localhost:8080/api/topic/tid/widget' //create and get
+//const wUri2 = 'http://localhost:8080/api/widget/wid';
+const wUri =  'https://java-jpa-server.herokuapp.com/api/topic/tid/widget' //create and get
+const wUri2 = 'https://java-jpa-server.herokuapp.com/api/widget/wid';
 
 export default class WidgetService{
 

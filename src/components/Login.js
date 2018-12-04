@@ -25,7 +25,9 @@ export default class Login extends Component{
     }
 
     submit = e => {
-       fetch('http://localhost:8080/api/login', {
+        let url = "http://localhost:8080/api/login";
+        let herokuUrl = "https://java-jpa-server.herokuapp.com/api/login"
+       fetch(herokuUrl, {
             method: 'POST',
             credentials:'include',
             body: JSON.stringify({

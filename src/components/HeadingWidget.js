@@ -36,12 +36,12 @@ const HeadingWidget = ({widget,updateWidget,preview,name}) => {
                     </label>
                     <select className="custom-select"
                             id="headSize"
+                            value={widget.headingValue}
                             onChange={(event) => {
-                                widget.size = parseInt(event.target.value);
+                                widget.headingValue = parseInt(event.target.value);
                                 updateWidget(widget);
 
-                            }}
-                            value={widget.size}>
+                            }}>
                         <option value="1">Heading 1</option>
                         <option value="2">Heading 2</option>
                         <option value="3">Heading 3</option>
@@ -68,12 +68,12 @@ const HeadingWidget = ({widget,updateWidget,preview,name}) => {
                     <h4 hidden={preview}>
                         Preview
                     </h4>
-                    {widget.size === 1 && <h1>{widget.text}</h1>}
-                    {widget.size === 2 && <h2>{widget.text}</h2>}
-                    {widget.size === 3 && <h3>{widget.text}</h3>}
-                    {widget.size === 4 && <h4>{widget.text}</h4>}
-                    {widget.size === 5 && <h5>{widget.text}</h5>}
-                    {widget.size === 6 && <h6>{widget.text}</h6>}
+                    {widget.headingValue === 1 && <h1>{widget.text}</h1>}
+                    {widget.headingValue === 2 && <h2>{widget.text}</h2>}
+                    {widget.headingValue === 3 && <h3>{widget.text}</h3>}
+                    {widget.headingValue === 4 && <h4>{widget.text}</h4>}
+                    {widget.headingValue === 5 && <h5>{widget.text}</h5>}
+                    {widget.headingValue === 6 && <h6>{widget.text}</h6>}
                 </div>
             </form>
         </div>

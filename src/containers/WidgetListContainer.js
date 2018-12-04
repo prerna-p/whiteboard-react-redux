@@ -10,7 +10,7 @@ const stateToPropertyMapper = state => ({
 const dispatcherToPropertyMapper = dispatch => ({
 
     init: (topicId) => {
-    let url = "http://localhost:8080/api/topic/"+topicId+"/widget";
+    let url = "http://java-jpa-server.herokuapp.com/api/topic/"+topicId+"/widget";
     fetch(url)
         .then(response => response.json())
         .then(widgets => dispatch({
@@ -21,7 +21,7 @@ const dispatcherToPropertyMapper = dispatch => ({
     },
 
     createWidget : (topicId) => {
-        let url = "http://localhost:8080/api/topic/"+topicId+"/widget";
+        let url = "http://java-jpa-server.herokuapp.com/api/topic/"+topicId+"/widget";
         let widget =
             {
 
@@ -44,7 +44,7 @@ const dispatcherToPropertyMapper = dispatch => ({
                 }))
     },
     deleteWidget: (widget) =>{
-        let url = "http://localhost:8080/api/widget/" + widget.id;
+        let url = "http://java-jpa-server.herokuapp.com/api/widget/" + widget.id;
         fetch(url,{
             method: 'DELETE'
         }).then(response => response.json())
@@ -54,8 +54,7 @@ const dispatcherToPropertyMapper = dispatch => ({
             }))
     },
     updateWidget: (widget) =>{
-        let url = "http://localhost:8080/api/widget/" + widget.id;
-        console.log(widget)
+        let url = "http://java-jpa-server.herokuapp.com/api/widget/" + widget.id;
         fetch(url,{
             body: JSON.stringify(widget),
             headers: {'Content-Type' : 'application/json'},

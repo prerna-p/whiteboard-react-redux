@@ -1,16 +1,14 @@
 
 
+/*
 const Uri = 'http://localhost:8080/api/course/courseId/module/moduleId/lesson/lessonId/topic';
 const tUri = 'http://localhost:8080/api/lesson/lid/topic';
 const tUri2 = 'http://localhost:8080/api/topic/tid';
-
-/*
-
-const Uri = 'http://sheltered-lowlands-30899.herokuapp.com/api/course/courseId/module/moduleId/lesson/lessonId/topic';
-const tUri = 'http://sheltered-lowlands-30899.herokuapp.com/api/lesson/{lid}/topic';
-const tUri2 = 'http://sheltered-lowlands-30899.herokuapp.com/api/topic/{tid}';
-
 */
+
+const Uri = 'http://java-jpa-server.herokuapp.com/api/course/courseId/module/moduleId/lesson/lessonId/topic';
+const tUri = 'http://java-jpa-server.herokuapp.com/api/lesson/{lid}/topic';
+const tUri2 = 'http://java-jpa-server.herokuapp.com/api/topic/{tid}';
 
 
 export default class TopicService{

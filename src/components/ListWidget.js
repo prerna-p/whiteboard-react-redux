@@ -22,9 +22,9 @@ const ListWidget =({widget,updateWidget,preview,name})=>
                     <textarea type="text"
                               id="listTxt"
                               className="form-control"
-                              placeholder={widget.items}
+                              placeholder={widget.text}
                               onChange={(e)=>{
-                                  widget.items = e.target.value
+                                  widget.text = e.target.value
                                   updateWidget(widget)}}>
                     </textarea>
             </div>
@@ -38,10 +38,9 @@ const ListWidget =({widget,updateWidget,preview,name})=>
                 <select className="custom-select"
                         id="listType"
                         onChange={(e) => {
-                            console.log(e.target.value)
-                            widget.option = parseInt(e.target.value)
+                            widget.options = parseInt(e.target.value)
                             updateWidget(widget)}}
-                            value={widget.option}>
+                            value={widget.options}>
                     <option value="1">Unordered List</option>
                     <option value="2">Ordered List</option>
                 </select>
@@ -67,20 +66,20 @@ const ListWidget =({widget,updateWidget,preview,name})=>
                     Preview
                 </h4>
                     {
-                        widget.option === 2 &&
+                        widget.length>0 && widget.options === '2' &&
                         <ol>
                             {
-                                widget.items.split('\n').map((item,index) =>
+                                widget.text.split('\n').map((item,index) =>
                                 <li name={index}>{item}</li>
                                 )
                             }
                         </ol>
                     }
                     {
-                        widget.option === 1 &&
+                        widget.length>0 && widget.options === '1' &&
                         <ul>
                             {
-                                widget.items.split('\n').map((item,index) =>
+                                widget.text.split('\n').map((item,index) =>
                                     <li name={index}>{item}</li>
                                 )
                             }

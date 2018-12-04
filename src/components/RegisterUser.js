@@ -47,7 +47,9 @@ export default class RegisterUser extends Component{
     }
 
     handleSubmit =()=> {
-        return fetch('http://sheltered-lowlands-30899.herokuapp.com/api/register', {
+        let url = "http://localhost:8080/api/register";
+        let herokuUrl = "https://java-jpa-server.herokuapp.com/api/register"
+        return fetch(herokuUrl, {
             method: 'POST',
             body: JSON.stringify({
                 "username": this.state.username,

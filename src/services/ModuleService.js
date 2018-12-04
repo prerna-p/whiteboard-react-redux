@@ -1,15 +1,13 @@
-
+/*
 const cUri = 'http://localhost:8080/api/user/uid/course/cid/module';
 const mUri = 'http://localhost:8080/api/course/cid/module';
 const mUri2 = 'http://localhost:8080/api/course/cid/module/mid'
-
-
-/*
-const cUri = 'http://sheltered-lowlands-30899.herokuapp.com/api/user/uid/course/cid/module';
-const mUri = 'http://sheltered-lowlands-30899.herokuapp.com/api/course/cid/module';
-const mUri2 = 'http://sheltered-lowlands-30899.herokuapp.com/api/course/cid/module/mid'
-
 */
+
+const cUri = 'http://java-jpa-server.herokuapp.com/api/user/uid/course/cid/module';
+const mUri = 'http://java-jpa-server.herokuapp.com/api/course/cid/module';
+const mUri2 = 'http://java-jpa-server.herokuapp.com/api/course/cid/module/mid'
+
 
 
 export default class ModuleService {
